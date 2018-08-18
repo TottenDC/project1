@@ -81,19 +81,32 @@ function getRandomQuote(array) {
 /*
 randomBackgroundColor Function
 1. create function to return random value from 0-255
-2. create rgb(#,#,#) string using the random value Function
-3. access body element to change CSS and set background color to new, random string
-4. access button element to change it to match the background color
+2. create random red, green, and blue values using the random value Function
+3. create rgb(#,#,#) string
+4. access body element and button element to change CSS
+5. ask if the color combination is getting too close to white. If it is, re-randomize the values.
+6. if not, set background and button color to new, random string
 */
 function randomColorValue() {
   return Math.floor(Math.random() * 256);
 }
 function randomBackgroundColor() {
-var colorString = 'rgb(' + randomColorValue() + ',' + randomColorValue() + ',' + randomColorValue() + ')';
+  var red = randomColorValue();
+  var green = randomColorValue();
+  var blue = randomColorValue();
+
+  var colorString = 'rgb(' + red + ',' + green + ',' + blue + ')';
+
   var bodyElem = document.getElementById('page');
-  bodyElem.style.backgroundColor = colorString;
   var buttonElem = document.getElementById('loadQuote');
-  buttonElem.style.backgroundColor = colorString;
+  if (red >=200 && blue >= 200 && green >= 200) {
+    red = randomColorValue();
+    green = randomColorValue();
+    blue = randomColor();
+  } else {
+    bodyElem.style.backgroundColor = colorString;
+    buttonElem.style.backgroundColor = colorString;
+  }
 }
 // Create the printQuote funtion
 /*
@@ -125,3 +138,5 @@ function printQuote() {
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+var intervalID = window.setInterval(printQuote, 10000);
