@@ -80,6 +80,10 @@ function getRandomQuote(array) {
 
 /*
 randomBackgroundColor Function
+1. create function to return random value from 0-255
+2. create rgb(#,#,#) string using the random value Function
+3. access body element to change CSS and set background color to new, random string
+4. access button element to change it to match the background color
 */
 function randomColorValue() {
   return Math.floor(Math.random() * 256);
@@ -98,7 +102,7 @@ printQuote Function
 2. builds an html string to add into the quote-box on the page
 2a. conditionals check for extra properties in the object and adds to the string
 3. prints string to the page in the div element
-4. changes the background color
+4. changes the background and button color
 */
 function printQuote() {
   var quote = getRandomQuote(quotes);
