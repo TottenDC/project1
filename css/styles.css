@@ -63,6 +63,14 @@ body {
   font-style: normal;
 }
 
+.episode:before {
+  content: " (";
+}
+
+.episode:after {
+  content: ")";
+}
+
 .year:before {
   content: ", ";
   font-style: normal;
