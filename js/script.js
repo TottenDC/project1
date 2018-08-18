@@ -107,10 +107,14 @@ function randomBackgroundColor() {
     document.body.style.color = 'black';
     document.body.style.backgroundColor = colorString;
     buttonElem.style.backgroundColor = colorString;
+    buttonElem.style.borderColor = 'black';
+    buttonElem.style.color = 'black';
   } else {
     document.body.style.color = 'white';
     document.body.style.backgroundColor = colorString;
     buttonElem.style.backgroundColor = colorString;
+    buttonElem.style.borderColor = '#fff';
+    buttonElem.style.color = '#fff';
   }
 }
 
