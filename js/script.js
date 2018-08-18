@@ -74,7 +74,7 @@ getRandomQuote function
 2. returns the object at a random index position
 */
 function getRandomQuote(array) {
-  var randomIndex = Math.floor(Math.random() * (array.length + 1));
+  var randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 }
 
@@ -96,4 +96,4 @@ function printQuote() {
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
-document.getElementById('loadQuote').addEventListener("click", printQuote(), false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
