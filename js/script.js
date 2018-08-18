@@ -78,9 +78,31 @@ function getRandomQuote(array) {
   return array[randomIndex];
 }
 
+/*
+randomBackgroundColor Function
+*/
+function randomColorValue() {
+  return Math.floor(Math.random() * 256);
+}
+function randomBackgroundColor() {
+var colorString = 'rgb(' + randomColorValue() + ',' + randomColorValue() + ',' + randomColorValue() + ')';
+  var bodyElem = document.getElementById('page');
+  bodyElem.style.backgroundColor = colorString;
+  var buttonElem = document.getElementById('loadQuote');
+  buttonElem.style.backgroundColor = colorString;
+}
 // Create the printQuote funtion
+/*
+printQuote Function
+1. generates named object that holds a randomly-generated object from the quotes array
+2. builds an html string to add into the quote-box on the page
+2a. conditionals check for extra properties in the object and adds to the string
+3. prints string to the page in the div element
+4. changes the background color
+*/
 function printQuote() {
   var quote = getRandomQuote(quotes);
+
   var quotePropertiesToPrint = '<p class="quote">' + quote.quote + '</p>';
   quotePropertiesToPrint += '<p class="source">' + quote.source;
   if ( quote.citation !== ' ' ) {
@@ -89,8 +111,10 @@ function printQuote() {
   if ( quote.year !== ' ' ) {
     quotePropertiesToPrint += '<span class="year">' + quote.year +'</span>';
   }
-  quotePropertiesToPrint += '</p>'
+  quotePropertiesToPrint += '</p>';
+
   document.getElementById('quote-box').innerHTML = quotePropertiesToPrint;
+  randomBackgroundColor();
 }
 
 
